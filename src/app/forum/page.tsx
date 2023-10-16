@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <div>
       <ForumNav />
-      <div className="flex flex-col items-center min-h-screen gap-4 px-3">
+      <div className="flex flex-col items-center gap-4 px-3">
         <ForumPostCard />
         <ForumPostCard />
         <ForumPostCard />
