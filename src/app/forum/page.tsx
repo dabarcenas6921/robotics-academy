@@ -13,7 +13,7 @@ export default function Page() {
           <ForumPostCard />
           <ForumPostCard />
         </div>
-        <div className="w-1/4">
+        <div className="w-1/4 bg-gray-50 border-gray-700">
           <DiscussionTopics />
         </div>
       </div>

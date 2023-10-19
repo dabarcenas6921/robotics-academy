@@ -2,12 +2,12 @@ import TabProps from "@/interfaces/TabProps.inteface";
 
 export default function DiscussionTopics() {
   return (
-    <div className="flex flex-col rounded-xl bg-gray-50 border-gray-700 shadow-slate-700/[.7] max-w-md mx-auto">
-      <h2 className="font-bold">Discussion Topics</h2>
-      <div className="max-w-xs flex flex-col rounded-md shadow-sm">
+    <div className="flex flex-col rounded-xl  shadow-slate-700/[.7] mx-auto w-full max-w-md p-4">
+      <h2 className="font-bold text-lg mb-4">Discussion Topics</h2>
+      <div className="flex flex-col rounded-md shadow-sm">
         <button
           type="button"
-          className="py-3 px-4 inline-flex justify-between items-center gap-2 rounded-t-md border font-medium bg-white text-gray-700 align-middle hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all text-sm"
+          className="py-2 px-3 inline-flex justify-between items-center gap-2 rounded-t-md border font-medium bg-white text-gray-700 align-middle hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all text-sm"
         >
           All Discussions
           <svg
