@@ -62,21 +62,21 @@ export default function Navbar() {
             <Link
               className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
               aria-current="page"
-              href="/"
+              href="/demoreel"
             >
-              Home
+              Demo Reel
             </Link>
             <Link
               className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
               href="/blog"
             >
-              Blog
+              Virutal Classroom
             </Link>
             <Link
               className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
               href="/forum"
             >
-              Forum
+              Roboticist Forum
             </Link>
             <Link
               className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
