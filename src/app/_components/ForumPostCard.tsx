@@ -5,7 +5,7 @@ export default function ForumPostCard() {
     <div className="flex flex-col border shadow-sm rounded-xl bg-gray-50 border-gray-700 shadow-slate-700/[.7] w-full">
       <div className="p-4 md:p-7">
         <div className="flex items-center">
-          <div className="r-2 relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 md:flex hidden mr-2">
+          <div className="r-2 relative  items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 md:flex hidden mr-2">
             <span className="font-medium text-gray-300">DB</span>
           </div>
           <p className="text-xs text-gray-500">
