@@ -1,6 +1,8 @@
-import { BsChatSquareDots, BsThreeDots, BsShare } from "react-icons/bs"; // Importing required icons
+import { BsChatSquareDots, BsThreeDots, BsShare } from "react-icons/bs";
+import Link from "next/link";
+import ForumPostCardProps from "@/interfaces/ForumPostCardProps.interface";
 
-export default function ForumPostCard() {
+export default function ForumPostCard({ id }: ForumPostCardProps) {
   return (
     <div className="flex flex-col border shadow-sm rounded-xl bg-gray-50 border-gray-700 shadow-slate-700/[.7] w-full">
       <div className="p-4 md:p-7">
@@ -15,7 +17,9 @@ export default function ForumPostCard() {
           </p>
         </div>
         <div className="mt-3 flex items-center gap-2">
-          <h3 className="text-lg font-bold text-gray-800 ">Forum Post Title</h3>
+          <h3 className="text-lg font-bold text-gray-800 ">
+            <Link href={`/forum/post/${id}`}>Forum Post Title</Link>
+          </h3>
           <span className="inline-flex items-center gap-1.5 py-1.5 px-3 rounded-full text-xs font-medium bg-red-500 text-white">
             Industrial Robotics
           </span>
