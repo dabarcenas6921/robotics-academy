@@ -1,9 +1,5 @@
 import React from "react";
-
-interface PosterProps {
-  name: string;
-  postsCount: number;
-}
+import TopPosterProps from "@/interfaces/TopPostersProps.interface";
 
 export default function TopPosters() {
   return (
@@ -18,7 +14,7 @@ export default function TopPosters() {
   );
 }
 
-function Poster({ name, postsCount }: PosterProps) {
+function Poster({ name, postsCount }: TopPosterProps) {
   const getInitials = (name: string) => {
     const names = name.split(" ");
     return names.length > 1
