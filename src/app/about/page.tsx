@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 import openBox from "../../../public/about/open-box.png";
 import teamDescription from "../../../public/about/team_description.png";
 import envelope from "../../../public/about/envelope-img.png";
 
 export default function Page() {
   return (
-    <div className="mx-auto px-4 sm:px-6 lg:px-8 mt-10 text-black">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 mt-10 text-justify md:text-start text-black">
       <div className="grid lg:grid-cols-7 lg:gap-x-8 xl:gap-x-12 lg:items-center">
         <div className="lg:col-span-3">
           <h1 className="flex justify-center md:block text-2xl text-black md:text-4xl">
@@ -26,12 +27,14 @@ export default function Page() {
             .
           </p>
           <div className="mt-5 flex gap-x-4 justify-center md:justify-end">
-            <button
-              type="button"
+            <Link
+              href="https://roboticsacademy.fiu.edu/resources/Project-Summary.pdf"
+              rel="noopener noreferrer"
+              target="_blank"
               className="py-3 px-4 md:mr-10 inline-flex justify-center items-center gap-2 border border-gold rounded-md font-medium text-gold bg-transparent hover:bg-gold hover:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-all text-lg"
             >
               Read More
-            </button>
+            </Link>
           </div>
         </div>
         <div className="lg:col-span-4 mb-10 mt-10 md:mb-0 md:mt-0">
@@ -57,6 +60,9 @@ export default function Page() {
             alt="Team Description Image"
           />
         </div>
+        <Link href="/about/our-team" className=" flex justify-center underline">
+          Meet Our Team
+        </Link>
       </div>
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="grid md:grid-cols-2 mx-auto">
