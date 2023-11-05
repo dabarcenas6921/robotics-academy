@@ -9,16 +9,15 @@ export default function Navbar() {
         className="max-w-[85rem] w-full mx-auto px-4 md:flex md:items-center md:justify-between"
         aria-label="Global"
       >
-        <div className="flex items-center justify-between">
+        <div className="w-full flex items-center justify-between">
           <a
-            className="whitespace-nowrap inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white"
+            className="whitespace-nowrap inline-flex items-center text-md md:text-lg font-semibold hover:text-gray-400"
             href="/"
           >
-            <Image
-              src={logo}
+            <img
+              className="w-20"
+              src={`/eye-logo.png`}
               alt="Robotics Academy Logo"
-              width={100}
-              height={100}
             />
             Robotics Academy
           </a>
