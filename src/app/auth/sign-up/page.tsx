@@ -1,3 +1,9 @@
+import SignUpForm from "@/app/_components/form/SignUpForm";
+
 export default function Page() {
-  return <div>Sign-up Page</div>;
+  return (
+    <div>
+      <SignUpForm />
+    </div>
+  );
 }
