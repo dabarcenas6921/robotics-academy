@@ -1,6 +1,7 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -19,6 +20,9 @@ export default function SignUpForm() {
       path: ["confirmPassword"],
       message: "Passwords do not match",
     });
+
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -33,8 +37,22 @@ export default function SignUpForm() {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof FormSchema>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    const response = await fetch("/api/user", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: values.name,
+        email: values.email,
+        password: values.password,
+      }),
+    });
+
+    if (response.ok) {
+      router.push("/auth/sign-in");
+    } else {
+      console.error("Registration failed");
+    }
   };
 
   return (

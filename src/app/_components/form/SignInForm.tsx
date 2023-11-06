@@ -3,8 +3,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function SignInForm() {
+  const router = useRouter();
+
   const FormSchema = z.object({
     email: z.string().min(1, "Email is required").email("Invalid email"),
     password: z
@@ -25,8 +29,18 @@ export default function SignInForm() {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof FormSchema>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    const signInData = await signIn("credentials", {
+      email: values.email,
+      password: values.password,
+      redirect: false,
+    });
+
+    if (signInData?.error) {
+      console.log(signInData.error);
+    } else {
+      router.push("/forum");
+    }
   };
 
   return (
