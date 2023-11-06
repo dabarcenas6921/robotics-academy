@@ -1,8 +1,13 @@
 import Image from "next/image";
 import logo from "../../../public/eye-logo.png";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import UserAccountNav from "./UserAccountNav";
 
-export default function Navbar() {
+export default async function Navbar() {
+  const session = await getServerSession(authOptions);
+
   return (
     <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
       <nav
@@ -88,6 +93,16 @@ export default function Navbar() {
             >
               About
             </Link>
+            {session?.user ? (
+              <UserAccountNav />
+            ) : (
+              <Link
+                className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
+                href="/sign-in"
+              >
+                Sign In
+              </Link>
+            )}
           </div>
         </div>
       </nav>
