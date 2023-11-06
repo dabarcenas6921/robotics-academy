@@ -1,4 +1,4 @@
-import TeamProps from "@/interfaces/Team.interface";
+import TeamProps from "@/interfaces/TeamProps.interface";
 import Image from "next/image";
 
 export default function Team({ src, name, position, link }: TeamProps) {
@@ -6,7 +6,7 @@ export default function Team({ src, name, position, link }: TeamProps) {
     <div className="flex mb-4 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
       <a
         className="relative mx-auto w-11/12"
-        href={`${link ? link : '#0'}`}
+        href={`${link ? link : "#0"}`}
         target={`${link ? "_blank" : "_self"}`}
       >
         <Image

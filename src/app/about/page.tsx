@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import openBox from "../../../public/about/open-box.png";
 import teamDescription from "../../../public/about/team_description.png";
-import envelope from "../../../public/about/envelope-img.png";
+import news from "../../../public/about/latest-news-img.png";
 
 export default function Page() {
   return (
@@ -28,7 +28,7 @@ export default function Page() {
           </p>
           <div className="mt-5 flex gap-x-4 justify-center md:justify-end">
             <Link
-              href="https://roboticsacademy.fiu.edu/resources/Project-Summary.pdf"
+              href="../resources/Project-Summary.pdf"
               rel="noopener noreferrer"
               target="_blank"
               className="py-3 px-4 md:mr-10 inline-flex justify-center items-center gap-2 border border-gold rounded-md font-medium text-gold bg-transparent hover:bg-gold hover:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-all text-lg"
@@ -53,16 +53,31 @@ export default function Page() {
           Our team has the training and experience to deliver the project. We
           are proud to say that:
         </p>
-        <div className="lg:col-span-4 mt-5 lg:mt-0">
+        <a href="about/our-team" className="sm:relative mx-auto w-11/12">
           <Image
-            className="w-full rounded-xl"
+            className="rounded-xl"
             src={teamDescription}
             alt="Team Description Image"
           />
-        </div>
-        <Link href="/about/our-team" className=" flex justify-center underline">
-          Meet Our Team
-        </Link>
+          <div className="text-black text-center sm:opacity-0 hover:opacity-70 sm:hover:bg-gray-100 hover:rounded-2xl duration-300 whitespace-nowrap sm:absolute inset-0 flex justify-center items-center">
+            <p className="flex sm:text-2xl justify-center underline">
+              Meet Our Team
+            </p>
+          </div>
+        </a>
+      </div>
+      <div className="mt-5">
+        <h1 className="flex justify-center md:block text-2xl text-black md:text-4xl">
+          On the Grid
+        </h1>
+        <a href="about/news" className="sm:relative mx-auto w-11/12">
+          <Image className="rounded-xl" src={news} alt="News Image" />
+          <div className="text-black text-center sm:opacity-0 hover:opacity-70 sm:hover:bg-gray-100 hover:rounded-2xl duration-300 whitespace-nowrap sm:absolute inset-0 flex justify-center items-center">
+            <p className="flex sm:text-2xl justify-center underline">
+              Read our Latest News
+            </p>
+          </div>
+        </a>
       </div>
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="grid md:grid-cols-2 mx-auto">
