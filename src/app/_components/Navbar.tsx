@@ -1,45 +1,27 @@
 import Image from "next/image";
 import logo from "../../../public/eye-logo.png";
 import Link from "next/link";
-import gear from "../../../public/green-gear.png";
-import { useState } from "react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import UserAccountNav from "./UserAccountNav";
 
-export default function Navbar() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  let leaveTimeout: NodeJS.Timeout | undefined;
-
-  const handleGearMouseEnter = () => {
-    setIsDropdownOpen(true);
-  };
-
-  const handleGearMouseLeave = () => {
-    leaveTimeout = setTimeout(() => {
-      setIsDropdownOpen(false);
-    }, 200);
-  };
-
-  const handleDropdownMouseEnter = () => {
-    if (leaveTimeout) {
-      clearTimeout(leaveTimeout);
-    }
-  };
+export default async function Navbar() {
+  const session = await getServerSession(authOptions);
 
   return (
-    <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
+    <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white text-sm py-4">
       <nav
         className="max-w-[85rem] w-full mx-auto px-4 md:flex md:items-center md:justify-between"
         aria-label="Global"
       >
-        <div className="flex items-center justify-between">
+        <div className="w-full flex items-center justify-between">
           <a
-            className="whitespace-nowrap inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white"
+            className="whitespace-nowrap inline-flex items-center text-md md:text-lg font-semibold hover:text-gray-400"
             href="/"
           >
-            <Image
-              src={logo}
-              width={100}
-              height={100}
+            <img
+              className="w-20"
+              src={`/eye-logo.png`}
               alt="Robotics Academy Logo"
             />
             Robotics Academy
@@ -111,53 +93,16 @@ export default function Navbar() {
             >
               About
             </Link>
-            <div
-              className="relative"
-              onMouseEnter={handleGearMouseEnter}
-              onMouseLeave={handleGearMouseLeave}
-            >
-              <Image
-                src={gear}
-                width={96}
-                height={85}
-                className="w-8 h-8 ml-2 rotate-0 transition-transform transform-gpu hover:rotate-180 gear-image"
-                alt="FIU Communication"
-              />
-              {isDropdownOpen && (
-                <div
-                  className="absolute left-0 w-40 mt-8 bg-white rounded-lg shadow-lg"
-                  onMouseEnter={handleDropdownMouseEnter}
-                  onMouseLeave={handleGearMouseLeave}
-                >
-                  <ul className="divide-y divide-gray-200">
-                    <li>
-                      <a
-                        href="/login"
-                        className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                      >
-                        Login
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/signup"
-                        className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                      >
-                        Signup
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/contact"
-                        className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-                      >
-                        Contact Us
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
+            {session?.user ? (
+              <UserAccountNav />
+            ) : (
+              <Link
+                className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
+                href="/sign-in"
+              >
+                Sign In
+              </Link>
+            )}
           </div>
         </div>
       </nav>
