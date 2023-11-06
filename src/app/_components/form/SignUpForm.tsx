@@ -54,8 +54,6 @@ export default function SignUpForm() {
       router.push("/sign-in");
     } else {
       console.error("Registration failed");
-      const text = await response.text();
-      console.log(text);
     }
   };
 
