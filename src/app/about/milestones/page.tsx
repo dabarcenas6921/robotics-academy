@@ -148,8 +148,8 @@ export default function page() {
                       </h3>
                       <p className="mt-5 text-gray-600">
                         The Robotics Acedemy Summit has been organized to launch
-                        the Project's research phase. The event will take place
-                        on November 8th.
+                        the project&rsquo;s research phase. The event will take
+                        place on November 8th.
                       </p>
                     </div>
                     <h5 className="text-sm text-black font-semibold underline text-center">

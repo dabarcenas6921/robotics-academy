@@ -11,12 +11,12 @@ export default function page() {
           </h1>
           <p className="mt-5 text-black">
             The Summit, which took place on November 8, 2019, featured
-            discussions with and among five keynote speakers — industry leaders
-            and noted analysts of the state of the future of automation and AI
-            across the global economy. The Summit was attended by sixty
-            representatives of the region's leading Architecture, Engineering
-            and Construction firms, including two of the Nation's largest
-            housing developers and builders.
+            discussions with and among five keynote speakers &mdash; industry
+            leaders and noted analysts of the state of the future of automation
+            and AI across the global economy. The Summit was attended by sixty
+            representatives of the region&rsquo;s leading Architecture,
+            Engineering and Construction firms, including two of the
+            Nation&rsquo;s largest housing developers and builders.
             <br />
             <br />
             The Summit featured presentations from each of the keynote speakers,

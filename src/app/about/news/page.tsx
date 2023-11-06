@@ -18,7 +18,7 @@ export default function page() {
               News
             </h1>
             <p className="mt-3 text-sm">
-              Here you can find the Robotics Academy's latest news.
+              Here you can find the Robotics Academy&rsquo;s latest news.
             </p>
           </div>
         </div>
