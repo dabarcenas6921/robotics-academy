@@ -19,8 +19,10 @@ export default async function Navbar() {
             className="whitespace-nowrap inline-flex items-center text-md md:text-lg font-semibold hover:text-gray-400"
             href="/"
           >
-            <img
+            <Image
               className="w-20"
+              width={1000}
+              height={1000}
               src={`/eye-logo.png`}
               alt="Robotics Academy Logo"
             />
