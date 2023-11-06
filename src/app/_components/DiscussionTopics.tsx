@@ -1,4 +1,4 @@
-import TabProps from "@/interfaces/TabProps.inteface";
+import TabProps from "@/interfaces/TabProps.interface";
 
 export default function DiscussionTopics() {
   return (
