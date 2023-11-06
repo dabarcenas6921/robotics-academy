@@ -1,5 +1,4 @@
 import Team from "@/app/_components/Team";
-import Image from "next/image";
 
 export default function Page() {
   const src = "/public/about/members/";

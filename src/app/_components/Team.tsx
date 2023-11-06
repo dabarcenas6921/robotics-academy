@@ -1,4 +1,4 @@
-import TeamProps from "@/interfaces/Team.interface";
+import TeamProps from "@/interfaces/TeamProps.interface";
 import Image from "next/image";
 
 export default function Team({ src, name, position, link }: TeamProps) {
