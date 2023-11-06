@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function SignInForm() {
   const router = useRouter();
@@ -37,9 +38,11 @@ export default function SignInForm() {
     });
 
     if (signInData?.error) {
-      console.log(signInData.error);
+      toast.error("An error occurred when signing in. Please try again!");
     } else {
-      router.push("/forum");
+      router.refresh();
+      toast.success("Signed in successfully!");
+      router.push("/admin");
     }
   };
 
@@ -100,7 +103,7 @@ export default function SignInForm() {
             <p className="text-sm font-light text-gray-500">
               Don’t have an account yet?
               <Link
-                href="/auth/sign-up"
+                href="/sign-up"
                 className="px-2 font-medium text-primary-600 hover:underline"
               >
                 Sign up
