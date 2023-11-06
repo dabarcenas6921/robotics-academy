@@ -1,6 +1,12 @@
+"use client";
+import { useEffect } from "react";
 import NewTopicModal from "./NewTopicModal";
 
 export default function ForumNav() {
+  useEffect(() => {
+    require("preline");
+  }, []);
+
   return (
     <div className="w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto flex flex-col md:flex-row items-center flex-wrap gap-4">
       <div className="flex flex-col sm:flex-row items-center w-full md:w-auto mb-4 md:mb-0 flex-grow gap-4">
