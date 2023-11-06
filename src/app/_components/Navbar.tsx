@@ -1,8 +1,30 @@
 import Image from "next/image";
 import logo from "../../../public/eye-logo.png";
 import Link from "next/link";
+import gear from "../../../public/green-gear.png";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  let leaveTimeout: NodeJS.Timeout | undefined;
+
+  const handleGearMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const handleGearMouseLeave = () => {
+    leaveTimeout = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 200);
+  };
+
+  const handleDropdownMouseEnter = () => {
+    if (leaveTimeout) {
+      clearTimeout(leaveTimeout);
+    }
+  };
+
   return (
     <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
       <nav
@@ -16,16 +38,16 @@ export default function Navbar() {
           >
             <Image
               src={logo}
-              alt="Robotics Academy Logo"
               width={100}
               height={100}
+              alt="Robotics Academy Logo"
             />
             Robotics Academy
           </a>
           <div className="md:hidden">
             <button
               type="button"
-              className="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+              className="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover-bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover-text-white dark:focus:ring-offset-gray-800"
               data-hs-collapse="#navbar-image-and-text-1"
               aria-controls="navbar-image-and-text-1"
               aria-label="Toggle navigation"
@@ -60,35 +82,82 @@ export default function Navbar() {
         >
           <div className="flex flex-col gap-5 mt-5 md:flex-row md:items-center md:justify-end md:mt-0 md:pl-5">
             <Link
-              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
-              href="/demo-reel"
+              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover-text-gray-500"
+              href="/demoreel"
             >
               Demo Reel
             </Link>
             <Link
-              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
-              href="/virtual-classroom"
+              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover-text-gray-500"
+              href="/virtualclassroom"
             >
               Virtual Classroom
             </Link>
             <Link
-              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
+              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover-text-gray-500"
               href="/forum"
             >
               Roboticist Forum
             </Link>
             <Link
-              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
+              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover-text-gray-500"
               href="/articles"
             >
               Articles
             </Link>
             <Link
-              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
+              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover-text-gray-500"
               href="/about"
             >
               About
             </Link>
+            <div
+              className="relative"
+              onMouseEnter={handleGearMouseEnter}
+              onMouseLeave={handleGearMouseLeave}
+            >
+              <Image
+                src={gear}
+                width={96}
+                height={85}
+                className="w-8 h-8 ml-2 rotate-0 transition-transform transform-gpu hover:rotate-180 gear-image"
+                alt="FIU Communication"
+              />
+              {isDropdownOpen && (
+                <div
+                  className="absolute left-0 w-40 mt-8 bg-white rounded-lg shadow-lg"
+                  onMouseEnter={handleDropdownMouseEnter}
+                  onMouseLeave={handleGearMouseLeave}
+                >
+                  <ul className="divide-y divide-gray-200">
+                    <li>
+                      <a
+                        href="/login"
+                        className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                      >
+                        Login
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/signup"
+                        className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                      >
+                        Signup
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/contact"
+                        className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                      >
+                        Contact Us
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </nav>
