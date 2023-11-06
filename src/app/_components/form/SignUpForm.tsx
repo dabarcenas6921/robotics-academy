@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import toast from "react-hot-toast";
 
 export default function SignUpForm() {
   const FormSchema = z
@@ -49,7 +50,8 @@ export default function SignUpForm() {
     });
 
     if (response.ok) {
-      router.push("/auth/sign-in");
+      toast.success("Account created successfully!");
+      router.push("/sign-in");
     } else {
       console.error("Registration failed");
     }
