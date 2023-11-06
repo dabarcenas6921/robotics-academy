@@ -47,20 +47,20 @@ export default function SignInForm() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md xl:p-0">
-        <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-          <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+    <div className="flex flex-col items-center justify-center px-4 sm:px-8 py-10 mx-auto md:h-screen lg:py-0">
+      <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md lg:max-w-lg xl:max-w-2xl">
+        <div className="p-6 sm:p-10 space-y-6 sm:space-y-8 md:space-y-10">
+          <h1 className="text-2xl sm:text-3xl font-bold leading-tight tracking-tight text-gray-900 md:text-4xl">
             Sign in to your account
           </h1>
           <form
-            className="space-y-4 md:space-y-6"
+            className="space-y-6 sm:space-y-8 md:space-y-10"
             onSubmit={handleSubmit(onSubmit)}
           >
             <div>
               <label
                 htmlFor="email"
-                className="block mb-2 text-sm font-medium text-gray-900"
+                className="block mb-2 text-sm sm:text-lg font-medium text-gray-900"
               >
                 Your email
               </label>
@@ -68,17 +68,19 @@ export default function SignInForm() {
                 type="email"
                 {...register("email")}
                 id="email"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm sm:text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 sm:p-4"
                 placeholder="mail@example.com"
               />
               {errors.email && (
-                <p className="text-red-600">{errors.email.message}</p>
+                <p className="mt-2 text-red-600 text-sm sm:text-lg">
+                  {errors.email.message}
+                </p>
               )}
             </div>
             <div>
               <label
                 htmlFor="password"
-                className="block mb-2 text-sm font-medium text-gray-900"
+                className="block mb-2 text-sm sm:text-lg font-medium text-gray-900"
               >
                 Password
               </label>
@@ -87,20 +89,22 @@ export default function SignInForm() {
                 {...register("password")}
                 id="password"
                 placeholder="••••••••"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm sm:text-lg rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3 sm:p-4"
               />
               {errors.password && (
-                <p className="text-red-600">{errors.password.message}</p>
+                <p className="mt-2 text-red-600 text-sm sm:text-lg">
+                  {errors.password.message}
+                </p>
               )}
             </div>
 
             <button
               type="submit"
-              className="w-full text-white bg-gold hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-black font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+              className="w-full bg-gold text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-500 font-medium rounded-lg text-sm sm:text-lg px-5 py-3 sm:px-6 sm:py-4 text-center"
             >
               Sign in
             </button>
-            <p className="text-sm font-light text-gray-500">
+            <p className="text-sm sm:text-lg font-light text-gray-500">
               Don’t have an account yet?
               <Link
                 href="/sign-up"
