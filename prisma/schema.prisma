@@ -8,11 +8,48 @@ datasource db {
   relationMode = "prisma"
 }
 
-model users {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique(map: "Users_email_key")
+enum CategoryType {
+  Automation
+  Certificates
+  Courses
+  ImmersiveLearning
+  IndustrialRobotics
+  Other
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  email     String     @unique
   name      String
   password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  posts     Post[]    
+  comments  Comment[]  
+}
+
+model Post {
+  id          Int           @id @default(autoincrement())
+  title       String
+  content     String
+  createdAt   DateTime     @default(now())
+  userId      Int           
+  user        User          @relation(fields: [userId], references: [id])
+  category    CategoryType
+  comments    Comment[]    
+
+  @@index([userId])
+}
+
+model Comment {
+  id        Int       @id @default(autoincrement())
+  content   String
+  createdAt DateTime  @default(now())
+  postId    Int       
+  post      Post      @relation(fields: [postId], references: [id])
+  userId    Int       
+  user      User      @relation(fields: [userId], references: [id])
+
+  @@index([postId])
+  @@index([userId])
 }
