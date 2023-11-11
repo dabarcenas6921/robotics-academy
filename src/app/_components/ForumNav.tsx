@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import NewTopicModal from "./NewTopicModal";
+import NewTopicForm from "./form/NewTopicForm";
 
 export default function ForumNav() {
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function ForumNav() {
         >
           Start a new topic
         </button>
-        <NewTopicModal />
+        <NewTopicForm />
 
         <div className="flex w-full sm:w-auto rounded-md shadow-sm flex-grow">
           <input

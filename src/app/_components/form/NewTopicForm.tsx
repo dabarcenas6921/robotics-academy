@@ -1,10 +1,45 @@
-export default function NewTopicModal() {
+import * as z from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+export default function NewTopicForm() {
+  const FormSchema = z.object({
+    title: z.string().min(1, "Title is required"),
+    content: z.string().min(1, "Content is required"),
+    category: z
+      .string()
+      .min(1, "Category is required")
+      .refine((val) => val !== "Choose a category", {
+        message: "Category is required",
+      }),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      title: "",
+      content: "",
+      category: "",
+    },
+  });
+
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    console.log(values);
+  };
+
   return (
     <div
       id="hs-new-topic-modal"
       className="hs-overlay hidden w-full h-full fixed top-0 left-0 z-[60] flex items-center justify-center overflow-x-hidden overflow-y-auto"
     >
-      <div className="hs-overlay-open:opacity-100 hs-overlay-open:duration-500 opacity-0 transition-all 2xl:max-w-6xl sm:w-full m-3">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="hs-overlay-open:opacity-100 hs-overlay-open:duration-500 opacity-0 transition-all 2xl:max-w-6xl sm:w-full m-3"
+      >
         <div className="flex flex-col bg-white border shadow-sm rounded-xl">
           <div className="flex justify-between items-center py-3 px-4 border-b">
             <h3 className="font-bold text-gray-800 text-xl">New Forum Post</h3>
@@ -37,33 +72,39 @@ export default function NewTopicModal() {
                 Post Title
               </label>
               <input
+                {...register("title")}
                 type="text"
                 id="title"
-                name="title"
-                required
-                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400"
+                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none"
                 placeholder="Enter your post title here..."
               />
+              {errors.title && (
+                <p className="text-red-600">{errors.title.message}</p>
+              )}
             </div>
             <div className="mb-4">
               <label
-                htmlFor="countries"
+                htmlFor="category"
                 className="block mb-2 font-medium text-black"
               >
                 Select a category
               </label>
               <select
-                id="categories"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                {...register("category")}
+                id="category"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               >
-                <option selected>Choose a category</option>
+                <option value="">Choose a category</option>
                 <option value="Automation">Automation</option>
                 <option value="Certificates">Certificates</option>
                 <option value="Courses">Courses</option>
                 <option value="Immersive Learning">Immersive Learning</option>
-                <option value="Industiral Robotics">Industrial Robotics</option>
+                <option value="Industrial Robotics">Industrial Robotics</option>
                 <option value="Other">Other</option>
               </select>
+              {errors.category && (
+                <p className="text-red-600">{errors.category.message}</p>
+              )}
             </div>
             <div className="mb-4">
               <label
@@ -73,33 +114,34 @@ export default function NewTopicModal() {
                 Post Content
               </label>
               <textarea
+                {...register("content")}
                 id="content"
-                name="content"
                 rows={4}
-                required
-                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400"
+                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none"
                 placeholder="Enter your post content here..."
               ></textarea>
+              {errors.content && (
+                <p className="text-red-600">{errors.content.message}</p>
+              )}
             </div>
           </div>
           <div className="flex justify-end items-center gap-x-2 py-3 px-4 border-t">
             <button
               type="button"
-              className="py-2 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm"
-              data-hs-overlay="#hs-basic-modal"
+              className="py-2 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 transition-all text-sm"
+              // Add functionality to close the modal or clear the form
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="py-2 sm:py-3 px-3 sm:px-4 w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md font-medium text-white bg-gold shadow-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-all text-sm sm:text-md flex-shrink-0"
-              data-hs-overlay="#hs-new-topic-modal"
+              className="py-2 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium text-white bg-blue-600 shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 transition-all text-sm"
             >
               Submit Post
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
