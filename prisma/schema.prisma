@@ -34,7 +34,7 @@ model Post {
   content     String           @db.Text()
   createdAt   DateTime         @default(now())
   userId      String           
-  user        User?            @relation(fields: [userId], references: [id])
+  user        User            @relation(fields: [userId], references: [id])
   category    CategoryType
   comments    Comment[]    
 
