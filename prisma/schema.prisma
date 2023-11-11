@@ -31,10 +31,10 @@ model User {
 model Post {
   id          String           @id @default(cuid())
   title       String
-  content     String
-  createdAt   DateTime     @default(now())
+  content     String           @db.Text()
+  createdAt   DateTime         @default(now())
   userId      String           
-  user        User?          @relation(fields: [userId], references: [id])
+  user        User?            @relation(fields: [userId], references: [id])
   category    CategoryType
   comments    Comment[]    
 
