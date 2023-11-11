@@ -41,9 +41,29 @@ export default function NewTopicModal() {
                 id="title"
                 name="title"
                 required
-                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400"
                 placeholder="Enter your post title here..."
               />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="countries"
+                className="block mb-2 font-medium text-black"
+              >
+                Select a category
+              </label>
+              <select
+                id="categories"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+              >
+                <option selected>Choose a category</option>
+                <option value="Automation">Automation</option>
+                <option value="Certificates">Certificates</option>
+                <option value="Courses">Courses</option>
+                <option value="Immersive Learning">Immersive Learning</option>
+                <option value="Industiral Robotics">Industrial Robotics</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
             <div className="mb-4">
               <label
@@ -57,7 +77,7 @@ export default function NewTopicModal() {
                 name="content"
                 rows={4}
                 required
-                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400"
                 placeholder="Enter your post content here..."
               ></textarea>
             </div>
