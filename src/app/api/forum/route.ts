@@ -69,5 +69,29 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
-  return NextResponse.json({ message: "GET request" });
+  try {
+    // Retrieve the first 10 posts from the database
+    const posts = await db.post.findMany({
+      take: 10, // Limit the number of posts returned to 10
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        user: true,
+        comments: true,
+      },
+    });
+
+    // Return the retrieved posts
+    return NextResponse.json({
+      message: "Posts retrieved successfully",
+      posts,
+    });
+  } catch (error) {
+    // Handle any errors
+    return NextResponse.json(
+      { message: "Something went wrong!", error: error },
+      { status: 500 }
+    );
+  }
 }
