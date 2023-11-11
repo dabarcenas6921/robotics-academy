@@ -48,19 +48,13 @@ export async function POST(req: Request) {
       );
     }
 
-    // Assuming the session user ID is a string, convert it to a number
-    const userId = parseInt(session.user.id);
-    if (isNaN(userId)) {
-      return NextResponse.json({ message: "Invalid user ID" }, { status: 400 });
-    }
-
     // Create a new post in the database using Prisma
     const post = await db.post.create({
       data: {
         title: parsedData.title,
         content: parsedData.content,
         category,
-        userId, // Use the converted number userId
+        userId: session.user.id,
       },
     });
 
