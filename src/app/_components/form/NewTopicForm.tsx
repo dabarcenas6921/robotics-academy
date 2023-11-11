@@ -46,6 +46,7 @@ export default function NewTopicForm() {
             <button
               type="button"
               className="inline-flex flex-shrink-0 justify-center items-center h-8 w-8 rounded-md text-gray-500 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 focus:ring-offset-white transition-all text-sm"
+              data-hs-overlay="#hs-new-topic-modal"
             >
               <span className="sr-only">Close</span>
               <svg
@@ -129,7 +130,7 @@ export default function NewTopicForm() {
             <button
               type="button"
               className="py-2 px-4 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 transition-all text-sm"
-              // Add functionality to close the modal or clear the form
+              data-hs-overlay="#hs-new-topic-modal"
             >
               Cancel
             </button>
