@@ -29,7 +29,7 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
         //Check if user exists
-        const existingUser = await db.users.findUnique({
+        const existingUser = await db.user.findUnique({
           where: { email: credentials.email },
         });
 
