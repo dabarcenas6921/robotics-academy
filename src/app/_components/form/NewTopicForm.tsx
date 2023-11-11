@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function NewTopicForm() {
   const FormSchema = z.object({
-    title: z.string().min(1, "Title is required"),
+    title: z.string().min(1, "Title is required").max(100, "Title is too long"),
     content: z.string().min(1, "Content is required"),
     category: z
       .string()
@@ -28,7 +28,21 @@ export default function NewTopicForm() {
   });
 
   const onSubmit = async (values: z.infer<typeof FormSchema>) => {
-    console.log(values);
+    const response = await fetch("/api/forum", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: values.title,
+        content: values.content,
+        category: values.category,
+      }),
+    });
+
+    if (response.ok) {
+      console.log("Post created successfully!");
+    } else {
+      console.error("Post creation failed");
+    }
   };
 
   return (
