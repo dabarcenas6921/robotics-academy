@@ -22,6 +22,16 @@ export default function ForumPost({
 
   const timeAgo = formatDistanceToNow(createdAt, { addSuffix: true });
 
+  const formatCategoryName = (category: string) => {
+    if (category === "ImmersiveLearning") {
+      return "Immersive Learning";
+    } else if (category === "IndustrialRobotics") {
+      return "Industrial Robotics";
+    } else {
+      return category;
+    }
+  };
+
   return (
     <div className="p-4">
       <div className="flex justify-between items-center border-b pb-2">
@@ -34,7 +44,7 @@ export default function ForumPost({
           </button>
           <h1 className="font-bold text-2xl ml-4">{title}</h1>
         </div>
-        <h2>Posted in Category: {category}</h2>
+        <h2>Posted in Category: {formatCategoryName(category)}</h2>
       </div>
       <div className="flex justify-between items-center py-4">
         <div className="flex items-center">
