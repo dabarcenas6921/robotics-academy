@@ -31,7 +31,7 @@ export default async function Page({
       <div className="flex flex-wrap">
         <div className="flex flex-col items-center gap-4 px-3 w-full md:w-3/4">
           {postInfo ? (
-            <div>
+            <div className="w-full">
               <ForumPost
                 id={postInfo.id}
                 title={postInfo.title}
