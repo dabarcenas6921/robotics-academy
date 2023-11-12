@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
-import ForumNavStartTopicBtn from "./ForumNavStartTopicBtn";
 import { authOptions } from "@/lib/auth";
+import Link from "next/link";
 
 export default async function ForumNav() {
   const session = await getServerSession(authOptions);
@@ -8,8 +8,17 @@ export default async function ForumNav() {
   return (
     <div className="w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto flex flex-col md:flex-row items-center flex-wrap gap-4">
       <div className="flex flex-col sm:flex-row items-center w-full md:w-auto mb-4 md:mb-0 flex-grow gap-4">
-        {session?.user && <ForumNavStartTopicBtn />}
-
+        {session?.user && (
+          <div>
+            <Link
+              href="/forum/create-post"
+              passHref
+              className="py-2 sm:py-3 px-3 sm:px-4 w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md font-medium text-white bg-gold shadow-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-all text-sm sm:text-md flex-shrink-0"
+            >
+              Start a new topic
+            </Link>
+          </div>
+        )}
         <div className="flex w-full sm:w-auto rounded-md shadow-sm flex-grow">
           <input
             type="text"

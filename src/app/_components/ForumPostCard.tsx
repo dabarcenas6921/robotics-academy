@@ -45,7 +45,7 @@ export default function ForumPostCard({
               category
             )} text-white`}
           >
-            {category}
+            {formatCategoryName(category)}
           </span>
         </div>
         <p className="mt-2 text-gray-600">{content}</p>
@@ -75,13 +75,23 @@ function categoryColor(category: string) {
       return "bg-blue-500";
     case "Courses":
       return "bg-yellow-500";
-    case "Immersive Learning":
+    case "ImmersiveLearning":
       return "bg-purple-500";
-    case "Industrial Robotics":
+    case "IndustrialRobotics":
       return "bg-red-500";
     case "Other":
       return "bg-teal-500";
     default:
       return "bg-gray-500"; // A default case if the category doesn't match
+  }
+}
+
+function formatCategoryName(category: string) {
+  if (category === "ImmersiveLearning") {
+    return "Immersive Learning";
+  } else if (category === "IndustrialRobotics") {
+    return "Industrial Robotics";
+  } else {
+    return category;
   }
 }
