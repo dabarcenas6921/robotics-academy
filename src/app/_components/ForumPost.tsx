@@ -1,5 +1,6 @@
 "use client";
 import ForumPostCardProps from "@/interfaces/ForumPostCardProps.interface";
+import { formatDistanceToNow } from "date-fns";
 import { useRouter } from "next/navigation";
 
 export default function ForumPost({
@@ -18,6 +19,8 @@ export default function ForumPost({
       : names[0][0].toUpperCase();
   };
   const router = useRouter();
+
+  const timeAgo = formatDistanceToNow(createdAt, { addSuffix: true });
 
   return (
     <div className="p-4">
@@ -82,9 +85,9 @@ export default function ForumPost({
           <div>0</div>
         </div>
       </div>
-      <div className="py-4">
-        <p className="mb-4">{content}</p>
-        <p>3/10/23 11:19 AM</p>
+      <div>
+        <p className="mb-8">{content}</p>
+        <p className="text-sm text-gray-500">Posted {timeAgo}</p>
       </div>
     </div>
   );
