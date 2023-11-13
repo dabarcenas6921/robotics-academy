@@ -1,4 +1,4 @@
-import virtualclass from "../../../public//VirtualClass.png";
+import virtualclass from "../../../public/VirtualClass.png";
 import Image from "next/image";
 
 export default function VirtualClassroom() {
@@ -79,7 +79,7 @@ export default function VirtualClassroom() {
         </div>
       </div>
       <div>
-        <a href="https://roboticsacademy.fiu.edu/IL/open_media">
+        <a href="/badge">
           <button style={{ ...styledButton, marginTop: "10px" }}>
             Earn a Badge!
           </button>
@@ -87,7 +87,7 @@ export default function VirtualClassroom() {
       </div>
       <br />
       <div>
-        <a href="https://roboticsacademy.fiu.edu/IL/VR+AR">
+        <a href="/vrlesson">
           <button style={{ ...styledButton2, marginTop: "10px" }}>
             Preview Lesson in VR!
           </button>
