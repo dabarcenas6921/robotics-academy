@@ -1,4 +1,4 @@
-import virtualclass from "../../../public/VirtualClass.png";
+import virtualclass from "../../../public/virtualclass.png";
 import Image from "next/image";
 
 export default function VirtualClassroom() {
