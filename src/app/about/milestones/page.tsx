@@ -1,6 +1,25 @@
+"use client";
+import { Carousel, Modal, ModalHeader } from "flowbite-react";
 import Image from "next/image";
+import { useState } from "react";
 
-export default function page() {
+export default function Page() {
+  const [openModal, setOpenModal] = useState(false);
+
+  let images = [];
+
+  for (let i = 1; i <= 19; i++) {
+    images.push(
+      <Image
+        className="rounded-sm"
+        width={1000}
+        height={1000}
+        src={`/about/summit/gallery/${i}.jpg`}
+        alt={`Gallery Image ${i}`}
+      />
+    );
+  }
+
   return (
     <div>
       <div className="py-5">
@@ -168,6 +187,62 @@ export default function page() {
                         Learn More
                       </h5>
                     </a>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6 rounded-full bg-white border-blue-700 border-4 w-8 h-8 absolute md:left-1/2 md:-translate-y-4 md:transform md:-translate-x-1/2 flex items-center md:justify-center"></div>
+            </div>
+          </div>
+          <div className="sm:mb-12">
+            <div className="flex sm:flex-row items-center">
+              <div className="ml-20 md:ml-0 flex justify-start w-full items-center">
+                <div className="w-8/12 transform md:-translate-x-1/3">
+                  <div className="md:mx-10 shadow">
+                    <a
+                      className="group flex flex-col justify-between border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300 rounded-sm p-5"
+                      onClick={() => setOpenModal(true)}
+                    >
+                      <div>
+                        <Image
+                          className="rounded-xl"
+                          width={1000}
+                          height={1000}
+                          src="/about/milestones/milestone-5.png"
+                          alt="First Milestone"
+                        />
+                      </div>
+                      <div className="my-6">
+                        <h3 className="text-xl font-semibold text-black">
+                          Summit
+                        </h3>
+                        <p className="mt-5 text-gray-600">
+                          The Summit featured discussions with and among five
+                          keynote speakers - industry leaders and noted analysts
+                          of the state of the future of automation and AI across
+                          the global economy.
+                        </p>
+                      </div>
+                      <h5 className="text-sm text-black font-semibold underline text-center">
+                        Learn More
+                      </h5>
+                    </a>
+                    <Modal
+                      show={openModal}
+                      onClose={() => setOpenModal(false)}
+                      dismissible
+                    >
+                      <ModalHeader>Summit Gallery</ModalHeader>
+                      <div className="w-full flex justify-center">
+                        <div className="mb-10 w-[500px] h-56 sm:h-64 xl:h-80 2xl:h-96">
+                          <Carousel
+                            pauseOnHover
+                            className="relative overflow-hidden"
+                          >
+                            {images}
+                          </Carousel>
+                        </div>
+                      </div>
+                    </Modal>
                   </div>
                 </div>
               </div>

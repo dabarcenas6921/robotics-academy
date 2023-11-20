@@ -3,6 +3,7 @@ import Link from "next/link";
 import openBox from "../../../public/about/open-box.png";
 import teamDescription from "../../../public/about/team_description.png";
 import news from "../../../public/about/latest-news-img.png";
+import { Carousel } from "flowbite-react";
 
 export default function Page() {
   return (
@@ -79,7 +80,7 @@ export default function Page() {
           </div>
         </a>
       </div>
-      <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-12 lg:px-6">
         <div className="grid md:grid-cols-2 mx-auto">
           <div>
             <h1 className="flex justify-center md:block text-2xl text-black md:text-4xl">

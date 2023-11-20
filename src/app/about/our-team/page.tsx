@@ -4,7 +4,7 @@ export default function Page() {
   const src = "/public/about/members/";
 
   return (
-    <div className="mx-auto mb-12 mt-6">
+    <div className="mx-auto mt-6">
       <div className="container pb-20 px-5 mx-auto">
         <div className="flex flex-row justify-center mb-12 mx-auto">
           <div className="flex flex-row flex-wrap">
