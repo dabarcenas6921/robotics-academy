@@ -168,7 +168,7 @@ function TableRows({ post }: TableRowsProps) {
         {post.user.name}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-        <AdminTableDropdown />
+        <AdminTableDropdown postId={post.id} />
       </td>
     </tr>
   );

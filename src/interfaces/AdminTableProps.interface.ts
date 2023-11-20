@@ -5,6 +5,7 @@ interface User {
 }
 
 interface SpamPost {
+  id: string;
   title: string;
   content: string;
   createdAt: Date;

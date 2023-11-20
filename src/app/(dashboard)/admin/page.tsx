@@ -11,6 +11,7 @@ export default async function Page() {
     const spamPosts = await db.post.findMany({
       where: { isSpam: true },
       select: {
+        id: true,
         createdAt: true,
         category: true,
         content: true,

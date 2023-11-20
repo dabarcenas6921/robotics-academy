@@ -66,6 +66,7 @@ export async function POST(req: NextRequest) {
       comment_author: session.user.name!,
       comment_author_email: session.user.email,
       comment_content: parsedData.content,
+      user_role: session.user.role == "Admin" ? "administrator" : "user",
     };
 
     const isSpam = await client.checkSpam(comment);
