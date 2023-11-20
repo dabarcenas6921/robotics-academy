@@ -27,7 +27,7 @@ export default async function Page() {
     return (
       <div>
         <h2 className="text-2xl font-semibold mb-5">
-          Welcome back {session?.user.name}! Here's the latest spam report:
+          Welcome back {session?.user.name}! Here is the latest spam report:
         </h2>
         <AdminTable spamPosts={spamPosts} />
       </div>
