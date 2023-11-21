@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function page() {
   return (
-    <div className="mx-auto mb-12 mt-6">
+    <div className="mx-auto mt-6">
       <div className="container pb-20 px-5 mx-auto">
         <div className="relative flex justify-center mx-auto w-11/12 pb-5">
           <Image
