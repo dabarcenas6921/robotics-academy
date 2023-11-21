@@ -1,24 +1,24 @@
-"use client";
-import { useEffect } from "react";
-import NewTopicModal from "./NewTopicModal";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import Link from "next/link";
 
-export default function ForumNav() {
-  useEffect(() => {
-    require("preline");
-  }, []);
+export default async function ForumNav() {
+  const session = await getServerSession(authOptions);
 
   return (
     <div className="w-full px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto flex flex-col md:flex-row items-center flex-wrap gap-4">
       <div className="flex flex-col sm:flex-row items-center w-full md:w-auto mb-4 md:mb-0 flex-grow gap-4">
-        <button
-          type="button"
-          className="py-2 sm:py-3 px-3 sm:px-4 w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md font-medium text-white bg-gold shadow-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-all text-sm sm:text-md flex-shrink-0"
-          data-hs-overlay="#hs-new-topic-modal"
-        >
-          Start a new topic
-        </button>
-        <NewTopicModal />
-
+        {session?.user && (
+          <div>
+            <Link
+              href="/forum/create-post"
+              passHref
+              className="py-2 sm:py-3 px-3 sm:px-4 w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md font-medium text-white bg-gold shadow-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-all text-sm sm:text-md flex-shrink-0"
+            >
+              Start a new topic
+            </Link>
+          </div>
+        )}
         <div className="flex w-full sm:w-auto rounded-md shadow-sm flex-grow">
           <input
             type="text"
@@ -29,7 +29,7 @@ export default function ForumNav() {
           />
           <button
             type="button"
-            className="inline-flex flex-shrink-0 justify-center items-center h-[2.5rem] sm:h-[2.875rem] w-[2.5rem] sm:w-[2.875rem] rounded-r-md border border-transparent font-semibold bg-gold text-white hover:bg-opacity-90 focus:z-10 focus:outline-none focus:ring-2 focus:ring-gold transition-all text-sm"
+            className="inline-flex flex-shrink-0 justify-center items-center h-[2.5rem] sm:h-[2.875rem] w-[2.5rem] sm:w-[2.875rem] rounded-r-md border border-transparent font-semibold bg-lime-500 text-white hover:bg-lime-300 focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all text-sm"
           >
             <svg
               className="h-3 sm:h-4 w-3 sm:w-4"
@@ -43,7 +43,7 @@ export default function ForumNav() {
         </div>
       </div>
       <ul className="flex flex-col lg:flex-row w-full lg:w-auto flex-shrink-0">
-        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto">
+        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto hover:bg-gray-50">
           <button className="flex items-center gap-x-2.5 focus:outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ export default function ForumNav() {
             Home
           </button>
         </li>
-        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto">
+        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto hover:bg-gray-50">
           <button className="flex items-center gap-x-2.5 focus:outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ export default function ForumNav() {
             Most Popular
           </button>
         </li>
-        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto">
+        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto hover:bg-gray-50">
           <button className="flex items-center gap-x-2.5 focus:outline-none">
             <svg
               className="flex-none"
@@ -87,7 +87,7 @@ export default function ForumNav() {
             My Discussions
           </button>
         </li>
-        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto">
+        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto hover:bg-gray-50">
           <button className="flex items-center gap-x-2.5 focus:outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"

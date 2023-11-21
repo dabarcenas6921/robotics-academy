@@ -9,7 +9,7 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
   },
-  secret: process.env.SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
     signIn: "/sign-in",
   },
@@ -29,7 +29,7 @@ export const authOptions: NextAuthOptions = {
           return null;
         }
         //Check if user exists
-        const existingUser = await db.users.findUnique({
+        const existingUser = await db.user.findUnique({
           where: { email: credentials.email },
         });
 
@@ -50,6 +50,7 @@ export const authOptions: NextAuthOptions = {
           id: `${existingUser.id}`,
           name: existingUser.name,
           email: existingUser.email,
+          role: existingUser.role,
         };
       },
     }),
@@ -70,6 +71,8 @@ export const authOptions: NextAuthOptions = {
         user: {
           ...session.user,
           email: token.email,
+          id: token.sub,
+          role: token.role,
         },
       };
     },

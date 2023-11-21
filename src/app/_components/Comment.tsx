@@ -20,9 +20,7 @@ export default function Comment() {
               <p className="font-semibold text-gray-800">Michael Gough</p>
             </div>
           </div>
-          <p className="text-sm text-gray-600 ml-3">
-            <div>Feb. 8, 2022</div>
-          </p>
+          <p className="text-sm text-gray-600 ml-3">Feb. 8, 2022</p>
         </div>
       </footer>
       <p className="text-gray-500">
