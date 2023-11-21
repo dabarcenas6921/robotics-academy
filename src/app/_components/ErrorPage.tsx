@@ -1,10 +1,10 @@
+"use client";
 import ErrorPageProps from "@/interfaces/ErrorPageProps.interface";
-import { authOptions } from "@/lib/auth";
-import { getServerSession } from "next-auth";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
-export default async function ErrorPage({ errorCode }: ErrorPageProps) {
-  const session = await getServerSession(authOptions);
+export default function ErrorPage({ errorCode }: ErrorPageProps) {
+  const { data: session } = useSession();
   return (
     <div className="w-full flex h-full justify-center items-center">
       <div className="max-w-[50rem] flex flex-col mx-auto w-full h-full">

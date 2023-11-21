@@ -7,8 +7,6 @@ import { getServerSession } from "next-auth";
 export default async function Page() {
   const session = await getServerSession(authOptions);
 
-  console.log(session);
-
   if (session?.user.role === "Admin") {
     const spamPosts = await db.post.findMany({
       where: { isSpam: true },
