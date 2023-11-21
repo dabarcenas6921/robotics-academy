@@ -1,10 +1,20 @@
-import ForumNav from "../_components/ForumNav";
-import ForumPostCard from "../_components/ForumPostCard";
-import DiscussionTopics from "../_components/DiscussionTopics";
+import ForumNav from "../../../_components/ForumNav";
+import ForumPostCard from "../../../_components/ForumPostCard";
+import DiscussionTopics from "../../../_components/DiscussionTopics";
 import { db } from "@/lib/db";
-import { Poster } from "../_components/Poster";
+import { CategoryType } from "@prisma/client";
+import ErrorPage from "@/app/_components/ErrorPage";
+import { Poster } from "@/app/_components/Poster";
 
-export default async function Page() {
+export default async function Page({
+  params,
+}: {
+  params: { category_name: CategoryType };
+}) {
+  if (!Object.values(CategoryType).includes(params.category_name)) {
+    return <ErrorPage errorCode="404" />;
+  }
+
   const posts = await db.post.findMany({
     take: 10,
     orderBy: {
@@ -22,6 +32,7 @@ export default async function Page() {
       },
       comments: true,
     },
+    where: { category: { equals: params.category_name } },
   });
 
   const queryResult = await db.user.findMany({

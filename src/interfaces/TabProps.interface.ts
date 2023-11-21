@@ -1,5 +1,5 @@
 export default interface TabProps {
   label: string;
-  color: string;
-  count: number;
+  color?: string;
+  count?: number;
 }
