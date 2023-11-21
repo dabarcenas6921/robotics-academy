@@ -17,6 +17,11 @@ enum CategoryType {
   Other
 }
 
+enum Role {
+  Admin
+  User
+}
+
 model User {
   id        String        @id @default(cuid())
   email     String     @unique
@@ -24,6 +29,7 @@ model User {
   password  String
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
+  role      Role       @default(User)
   posts     Post[]    
   comments  Comment[]  
 }
@@ -34,6 +40,7 @@ model Post {
   content     String           @db.Text()
   createdAt   DateTime         @default(now())
   userId      String           
+  isSpam      Boolean         @default(false)
   user        User            @relation(fields: [userId], references: [id])
   category    CategoryType
   comments    Comment[]    

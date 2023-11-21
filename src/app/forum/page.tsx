@@ -6,6 +6,9 @@ import { db } from "@/lib/db";
 
 export default async function Page() {
   const posts = await db.post.findMany({
+    where: {
+      isSpam: false, //Only non-spam posts are shown.
+    },
     take: 10,
     orderBy: {
       createdAt: "desc",
@@ -15,7 +18,6 @@ export default async function Page() {
         select: {
           id: true,
           name: true,
-          // Do not select the password field
           createdAt: true,
           updatedAt: true,
         },
