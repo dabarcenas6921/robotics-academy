@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import UserAccountNav from "./UserAccountNav";
-import Dropdown from "./Dropdown";
+import ContactDropdown from "./Dropdown";
 
 export default async function Navbar() {
   const session = await getServerSession(authOptions);
@@ -106,7 +106,7 @@ export default async function Navbar() {
                 Sign In
               </Link>
             )}
-            <Dropdown />
+            <ContactDropdown />
           </div>
         </div>
       </nav>
