@@ -62,7 +62,7 @@ export default function Page() {
   };
 
   if (!session?.user) {
-    return <ErrorPage />;
+    return <ErrorPage errorCode="403"/>;
   } else {
     return (
       <main className=" p-6 min-h-screen">

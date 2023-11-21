@@ -29,7 +29,7 @@ export default async function ForumNav() {
           />
           <button
             type="button"
-            className="inline-flex flex-shrink-0 justify-center items-center h-[2.5rem] sm:h-[2.875rem] w-[2.5rem] sm:w-[2.875rem] rounded-r-md border border-transparent font-semibold bg-gold text-white hover:bg-opacity-90 focus:z-10 focus:outline-none focus:ring-2 focus:ring-gold transition-all text-sm"
+            className="inline-flex flex-shrink-0 justify-center items-center h-[2.5rem] sm:h-[2.875rem] w-[2.5rem] sm:w-[2.875rem] rounded-r-md border border-transparent font-semibold bg-lime-500 text-white hover:bg-lime-300 focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all text-sm"
           >
             <svg
               className="h-3 sm:h-4 w-3 sm:w-4"
@@ -43,7 +43,7 @@ export default async function ForumNav() {
         </div>
       </div>
       <ul className="flex flex-col lg:flex-row w-full lg:w-auto flex-shrink-0">
-        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto">
+        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto hover:bg-gray-50">
           <button className="flex items-center gap-x-2.5 focus:outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ export default async function ForumNav() {
             Home
           </button>
         </li>
-        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto">
+        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto hover:bg-gray-50">
           <button className="flex items-center gap-x-2.5 focus:outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ export default async function ForumNav() {
             Most Popular
           </button>
         </li>
-        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto">
+        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto hover:bg-gray-50">
           <button className="flex items-center gap-x-2.5 focus:outline-none">
             <svg
               className="flex-none"
@@ -87,7 +87,7 @@ export default async function ForumNav() {
             My Discussions
           </button>
         </li>
-        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto">
+        <li className="inline-flex items-center gap-x-2.5 py-3 px-4 text-sm font-medium bg-white border text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg sm:-ml-px sm:mt-0 sm:first:rounded-tr-none sm:first:rounded-bl-lg sm:last:rounded-bl-none sm:last:rounded-tr-lg w-full lg:w-auto hover:bg-gray-50">
           <button className="flex items-center gap-x-2.5 focus:outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,9 +1,9 @@
 import ForumNav from "@/app/_components/ForumNav";
 import DiscussionTopics from "@/app/_components/DiscussionTopics";
-import TopPosters from "@/app/_components/TopPosters";
 import ForumPost from "@/app/_components/ForumPost";
 import CommentsSection from "@/app/_components/CommentsSection";
 import { db } from "@/lib/db";
+import { Poster } from "@/app/_components/Poster";
 
 export default async function Page({
   params,
@@ -23,6 +23,15 @@ export default async function Page({
       },
       comments: true,
     },
+  });
+
+  const queryResult = await db.user.findMany({
+    orderBy: { posts: { _count: "asc" } },
+    include: { _count: { select: { posts: true } } },
+  });
+
+  const topPosters = queryResult.filter((user) => {
+    return user._count.posts > 0;
   });
 
   return (
@@ -49,8 +58,21 @@ export default async function Page({
         </div>
         <div className="hidden md:block w-full md:w-1/4">
           <DiscussionTopics />
-          <TopPosters />
+          <div className="flex flex-col rounded-xl shadow-slate-700/[.7] mx-auto w-full max-w-md p-4">
+            <h2 className="font-bold text-lg mb-4">Top Posters</h2>
+            <div className="flex flex-col rounded-md shadow-sm">
+              {topPosters.map((user) => (
+                <Poster
+                  key={user.id}
+                  id={user.id}
+                  name={user.name}
+                  postsCount={user._count.posts}
+                />
+              ))}
+            </div>
+          </div>
         </div>
+        <div className="hidden md:block w-full md:w-1/4"></div>
       </div>
     </div>
   );

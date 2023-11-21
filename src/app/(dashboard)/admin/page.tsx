@@ -34,5 +34,5 @@ export default async function Page() {
     );
   }
 
-  return <ErrorPage />;
+  return <ErrorPage errorCode="403" />;
 }

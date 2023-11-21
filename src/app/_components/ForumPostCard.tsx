@@ -37,7 +37,7 @@ export default function ForumPostCard({
           </p>
         </div>
         <div className="mt-3 flex items-center gap-2">
-          <h3 className="text-lg font-bold text-gray-800 ">
+          <h3 className="text-lg font-bold text-gray-800 hover:underline hover:text-blue-500">
             <Link href={`/forum/post/${id}`}>{title}</Link>
           </h3>
           <span
@@ -50,15 +50,15 @@ export default function ForumPostCard({
         </div>
         <p className="mt-2 text-gray-600">{content}</p>
         <div className="mt-4 flex items-center gap-x-8">
-          <button className="flex items-center gap-1 bg-transparent border-none">
+          <button className="flex items-center gap-1 bg-transparent border-none hover:text-blue-500">
             <BsChatSquareDots />
             {commentsCount} Comments
           </button>
-          <button className="flex items-center gap-1 bg-transparent border-none">
+          <button className="flex items-center gap-1 bg-transparent border-none hover:text-blue-500">
             <BsShare />
             Share
           </button>
-          <button className="flex items-center gap-1 bg-transparent border-none">
+          <button className="flex items-center gap-1 bg-transparent border-none hover:text-blue-500">
             <BsThreeDots />
           </button>
         </div>

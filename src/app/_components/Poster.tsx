@@ -1,20 +1,9 @@
-import React from "react";
-import TopPosterProps from "@/interfaces/TopPostersProps.interface";
+"use client";
+import PosterProps from "@/interfaces/PostersProps.interface";
+import { useRouter } from "next/navigation";
 
-export default function TopPosters() {
-  return (
-    <div className="flex flex-col rounded-xl shadow-slate-700/[.7] mx-auto w-full max-w-md p-4">
-      <h2 className="font-bold text-lg mb-4">Top Posters</h2>
-      <div className="flex flex-col rounded-md shadow-sm">
-        <Poster name="Jane Doe" postsCount={500} />
-        <Poster name="John Doe" postsCount={400} />
-        <Poster name="Marco Polo" postsCount={200} />
-      </div>
-    </div>
-  );
-}
-
-function Poster({ name, postsCount }: TopPosterProps) {
+export function Poster({ id, name, postsCount }: PosterProps) {
+  const router = useRouter();
   const getInitials = (name: string) => {
     const names = name.split(" ");
     return names.length > 1
@@ -24,6 +13,7 @@ function Poster({ name, postsCount }: TopPosterProps) {
 
   return (
     <button
+      onClick={() => router.push(`/forum/poster/${id}`)}
       type="button"
       className="py-3 px-4 inline-flex justify-between items-center gap-2 border font-medium bg-white text-gray-700 align-middle hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all text-sm w-full"
     >
