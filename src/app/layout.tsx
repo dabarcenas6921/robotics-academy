@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Navbar from "./_components/Navbar";
 import { Toaster } from "react-hot-toast";
 import Provider from "./_components/Provider";
+import Footer from "./_components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({
           <Navbar />
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {children}
+            <Footer />
           </div>
           <Toaster />
         </Provider>
