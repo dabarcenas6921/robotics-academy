@@ -6,7 +6,6 @@ import UserAccountNav from "./UserAccountNav";
 import ContactDropdown from "./Dropdown";
 import { Dropdown, DropdownHeader } from "flowbite-react";
 
-
 export default async function Navbar() {
   const session = await getServerSession(authOptions);
 
@@ -134,7 +133,7 @@ export default async function Navbar() {
                 Sign In
               </Link>
             )}
-            <ContactDropdown />
+            {/* <ContactDropdown /> */}
           </div>
         </div>
       </nav>
