@@ -32,7 +32,7 @@ export default function Page() {
               href="../resources/Project-Summary.pdf"
               rel="noopener noreferrer"
               target="_blank"
-              className="py-3 px-4 md:mr-10 inline-flex justify-center items-center gap-2 border border-gold rounded-md font-medium text-gold bg-transparent hover:bg-gold hover:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-all text-lg"
+              className="py-3 px-4 md:mr-10 inline-flex justify-center items-center gap-2 border border-lime-500 rounded-md font-medium text-lime-500 bg-transparent hover:bg-lime-500 hover:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all text-lg"
             >
               Read More
             </Link>
