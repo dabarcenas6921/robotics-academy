@@ -25,7 +25,7 @@ const OnlineCoursePage: React.FC = () => {
   };
   const blueBoxStyle: React.CSSProperties = {
     backgroundColor: "#C8DAE8",
-    color: "blue",
+    color: "black",
     padding: "20px 20px 2% 20px",
     marginTop: "10px",
     marginBottom: "20px",
@@ -38,7 +38,7 @@ const OnlineCoursePage: React.FC = () => {
   };
   const redBoxStyle: React.CSSProperties = {
     backgroundColor: "#CAE7C4",
-    color: "blue",
+    color: "black",
     padding: "20px 20px 2% 20px",
     marginTop: "10px",
     marginBottom: "20px",
@@ -51,16 +51,6 @@ const OnlineCoursePage: React.FC = () => {
   };
   const emphasizedTextStyle: React.CSSProperties = {
     fontSize: "42px",
-  };
-
-  const buttonStyle: React.CSSProperties = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "transparent",
-    border: "none",
-    cursor: "pointer",
   };
   const imageStyle: React.CSSProperties = {
     width: "250px",
