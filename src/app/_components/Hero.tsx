@@ -15,13 +15,13 @@ export default function Hero() {
           <div className="mt-5 flex gap-x-4">
             <button
               type="button"
-              className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md font-medium text-white bg-gold shadow-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-all text-lg"
+              className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md font-medium text-white bg-lime-500 shadow-sm hover:bg-lime-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all text-lg"
             >
               Access the Forum
             </button>
             <button
               type="button"
-              className="py-3 px-4 inline-flex justify-center items-center gap-2 border border-gold rounded-md font-medium text-gold bg-transparent hover:bg-gold hover:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-all text-lg"
+              className="py-3 px-4 inline-flex justify-center items-center gap-2 border border-lime-500 rounded-md font-medium text-lime-500 bg-transparent hover:bg-lime-500 hover:text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all text-lg"
             >
               Learn More
             </button>
