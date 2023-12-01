@@ -3,6 +3,7 @@ import starship_pic from "../../../public/starship.webp";
 import robotic_arms from "../../../public/automated_robotic_arms.jpg";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BlogSection() {
   return (
@@ -116,8 +117,9 @@ export default function BlogSection() {
       </div>
 
       <div className="mt-12 text-center">
-        <button
+        <Link
           type="button"
+          href="/about/news"
           className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md font-medium text-white bg-gold shadow-sm hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold transition-all text-md"
         >
           Read More
@@ -136,7 +138,7 @@ export default function BlogSection() {
               fill="currentColor"
             />
           </svg>
-        </button>
+        </Link>
       </div>
     </div>
   );

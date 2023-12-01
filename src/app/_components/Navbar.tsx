@@ -15,7 +15,7 @@ export default async function Navbar() {
         aria-label="Global"
       >
         <div className="w-full flex items-center justify-between">
-          <a
+          <Link
             className="whitespace-nowrap inline-flex items-center text-md md:text-lg font-semibold hover:text-gray-400"
             href="/"
           >
@@ -27,7 +27,7 @@ export default async function Navbar() {
               alt="Robotics Academy Logo"
             />
             Robotics Academy
-          </a>
+          </Link>
           <div className="md:hidden">
             <button
               type="button"
