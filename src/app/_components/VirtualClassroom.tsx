@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function VirtualClassroom() {
   const styledButton = {
     fontSize: "1.5em",
-    color: "#0000FF",
+    color: "black",
     background: "#C8DAE8",
     border: "1px solid #0A015A",
     borderRadius: "31px",
@@ -18,7 +18,7 @@ export default function VirtualClassroom() {
   };
   const styledButton2 = {
     fontSize: "1.5em",
-    color: "#0000FF",
+    color: "black",
     background: "#CAE7C4",
     border: "1px solid #0A015A",
     borderRadius: "31px",
@@ -32,13 +32,13 @@ export default function VirtualClassroom() {
   };
   return (
     <div>
-      <h1 style={{ fontSize: "3.3em", color: "#0000FF" }}>Virtual Classroom</h1>
+      <h1 style={{ fontSize: "3.3em", color: "black" }}>Virtual Classroom</h1>
       <div style={{ display: "flex" }}>
         <div style={{ flex: 1 }}>
           <p
             style={{
               fontSize: "1.2em",
-              color: "#0000FF",
+              color: "black",
               marginBottom: "10px",
             }}
           >
@@ -72,7 +72,7 @@ export default function VirtualClassroom() {
           />
           <h1
             className="title text-right"
-            style={{ fontSize: "3.3em", color: "#0000FF" }}
+            style={{ fontSize: "3.3em", color: "black" }}
           >
             Practice your skills and expand your knowledge
           </h1>
