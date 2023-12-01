@@ -6,6 +6,7 @@ export default function Card({ image, title, description, link }: CardProps) {
     <a
       className="group flex flex-col justify-between h-full border border-gray-200 hover:border-transparent hover:shadow-lg transition-all duration-300 rounded-xl p-5"
       href={link}
+      target="_blank"
     >
       <div className="aspect-w-15 aspect-h-11">
         <Image
@@ -20,7 +21,9 @@ export default function Card({ image, title, description, link }: CardProps) {
         <h3 className="text-xl font-semibold text-black">{title}</h3>
         <p className="mt-5 text-gray-600">{description}</p>
       </div>
-      <h5 className="text-sm text-black font-semibold underline text-center">Read More</h5>
+      <h5 className="text-sm text-black font-semibold underline text-center">
+        Read More
+      </h5>
     </a>
   );
 }

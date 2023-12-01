@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import gear from "../../../public/green-gear.png";
+import Link from "next/link";
 
 const GearDropdown = () => {
   return (
@@ -15,28 +16,28 @@ const GearDropdown = () => {
       <div className="absolute right-0 mt-2 py-2 w-40 bg-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity ease-in-out duration-300">
         <ul className="divide-y divide-gray-200">
           <li>
-            <a
-              href="/login"
+            <Link
+              href="/sign-in"
               className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
             >
               Login
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/signup"
+            <Link
+              href="/sign-up"
               className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
             >
               Sign in
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               href="/contact"
               className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
             >
               Contact Us
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

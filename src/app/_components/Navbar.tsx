@@ -1,9 +1,9 @@
 import Image from "next/image";
-import logo from "../../../public/eye-logo.png";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import UserAccountNav from "./UserAccountNav";
+import { Dropdown, DropdownHeader } from "flowbite-react";
 
 export default async function Navbar() {
   const session = await getServerSession(authOptions);
@@ -89,12 +89,39 @@ export default async function Navbar() {
             >
               Articles
             </Link>
-            <Link
-              className="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover-text-gray-500"
-              href="/about"
-            >
-              About
-            </Link>
+            <Dropdown label="About" inline>
+              <DropdownHeader>
+                <Link className="hover:text-gray-400" href="/about">
+                  About Home
+                </Link>
+              </DropdownHeader>
+              <DropdownHeader>
+                <Link
+                  className="ml-1.5 hover:text-gray-400"
+                  href="/about/milestones"
+                >
+                  Milestones
+                </Link>
+              </DropdownHeader>
+              <DropdownHeader>
+                <Link className="ml-4 hover:text-gray-400" href="/about/summit">
+                  Summit
+                </Link>
+              </DropdownHeader>
+              <DropdownHeader>
+                <Link
+                  className="ml-2.5 hover:text-gray-400"
+                  href="/about/our-team"
+                >
+                  Our Team
+                </Link>
+              </DropdownHeader>
+              <DropdownHeader>
+                <Link className="hover:text-gray-400" href="/about/news">
+                  Latest News
+                </Link>
+              </DropdownHeader>
+            </Dropdown>
             {session?.user ? (
               <UserAccountNav />
             ) : (
