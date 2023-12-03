@@ -58,7 +58,7 @@ export default function SignUpForm() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center px-4 sm:px-6 py-8 mx-auto md:h-screen lg:justify-center lg:py-0">
+    <div className="flex flex-col items-center justify-center px-4 sm:px-6 py-8 mx-auto lg:justify-center lg:py-0">
       <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md lg:max-w-lg xl:max-w-2xl 2xl:max-w-4xl">
         <div className="p-6 space-y-6 sm:p-8 md:p-10 lg:space-y-8">
           <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 sm:text-3xl md:text-4xl">
@@ -146,7 +146,7 @@ export default function SignUpForm() {
 
             <button
               type="submit"
-              className="w-full text-white bg-gold hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-black font-medium rounded-lg text-sm sm:text-lg md:text-xl px-5 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 text-center"
+              className="w-full text-white bg-lime-500 shadow-sm hover:bg-lime-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 font-medium rounded-lg text-sm sm:text-lg md:text-xl px-5 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 text-center"
             >
               Sign Up
             </button>
