@@ -100,7 +100,7 @@ export default function SignInForm() {
 
             <button
               type="submit"
-              className="w-full bg-gold text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-500 font-medium rounded-lg text-sm sm:text-lg px-5 py-3 sm:px-6 sm:py-4 text-center"
+              className="w-full bg-lime-500 shadow-sm hover:bg-lime-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-white bg-primary-600 hover:bg-primary-700 focus:ring-primary-500 font-medium rounded-lg text-sm sm:text-lg px-5 py-3 sm:px-6 sm:py-4 text-center"
             >
               Sign in
             </button>

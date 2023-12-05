@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import green from "../../../public/Open Media.png";
 import arm from "../../../public/arm.jpg";
+import painting from "../../../public/Painting.jpg";
 
 const OnlineCoursePage: React.FC = () => {
   const headerStyle: React.CSSProperties = {
@@ -23,8 +24,21 @@ const OnlineCoursePage: React.FC = () => {
     display: "block",
   };
   const blueBoxStyle: React.CSSProperties = {
-    backgroundColor: "#002080",
-    color: "white",
+    backgroundColor: "#C8DAE8",
+    color: "black",
+    padding: "20px 20px 2% 20px",
+    marginTop: "10px",
+    marginBottom: "20px",
+    width: "100%",
+    height: "70%",
+    borderRadius: "15px",
+    fontWeight: 500,
+    fontSize: "15px",
+    textAlign: "left",
+  };
+  const redBoxStyle: React.CSSProperties = {
+    backgroundColor: "#CAE7C4",
+    color: "black",
     padding: "20px 20px 2% 20px",
     marginTop: "10px",
     marginBottom: "20px",
@@ -38,22 +52,20 @@ const OnlineCoursePage: React.FC = () => {
   const emphasizedTextStyle: React.CSSProperties = {
     fontSize: "42px",
   };
-
-  const buttonStyle: React.CSSProperties = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    backgroundColor: "transparent",
-    border: "none",
-    cursor: "pointer",
-  };
   const imageStyle: React.CSSProperties = {
-    width: "225px",
+    width: "250px",
     height: "175px",
-    marginRight: "300px",
-    marginTop: "0px",
-    marginBottom: "0px",
+    marginRight: "100px",
+    marginTop: "-220px",
+    marginBottom: "50px",
+  };
+  const imageStyle2: React.CSSProperties = {
+    width: "250px",
+    height: "175px",
+    marginRight: "100px",
+    marginLeft: "100px",
+    marginTop: "-220px",
+    marginBottom: "50px",
   };
   const revisedContainerStyle: React.CSSProperties = {
     display: "flex",
@@ -110,8 +122,6 @@ const OnlineCoursePage: React.FC = () => {
             <br />
           </span>
           <br />
-          Fundamentals of Industrial Robots | Kuka
-          <br />
           In this course, you will learn basic anatomy,
           <br />
           safety, operation, and programming of a KUKA
@@ -132,8 +142,8 @@ const OnlineCoursePage: React.FC = () => {
               src={arm}
               alt="Button Image"
               width={200}
-              height={300}
-              style={imageStyle}
+              height={400}
+              style={{ ...imageStyle }}
             />
           </a>
           <a
@@ -141,12 +151,56 @@ const OnlineCoursePage: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button style={buttonStyle}>Robotic Arm Lesson</button>
+            <br />
+          </a>
+          <br />
+          <br />
+        </div>
+      </div>
+      <div style={redBoxStyle}>
+        <p>
+          <span style={emphasizedTextStyle}>
+            <strong>
+              Industrial Robotic Arm
+              <br />
+              Applications
+            </strong>
+            <br />
+          </span>
+          <br />
+          This course is designed to teach the basics of 3
+          <br />
+          axis subtractive machining and robotics
+          <br />
+          operations.
+        </p>
+
+        <div className="flex justify-center" style={revisedContainerStyle}>
+          <a
+            href="/resources/3DPrinting.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <p style={{ fontSize: "24px", fontWeight: "bold" }}>
+              Lesson 2: Painting and Robotics
+            </p>
+            <Image
+              src={painting}
+              alt="Button Image"
+              width={200}
+              height={400}
+              style={{ ...imageStyle2 }}
+            />
+          </a>
+          <a
+            href="/resources/3DPrinting.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <br />
           </a>
           <br />
         </div>
-        <br />
-        <div></div>
         <br />
         <br />
       </div>
